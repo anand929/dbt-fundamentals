@@ -4,10 +4,26 @@ sources:
     - name: jaffle_shop
       database: qfybigwj
       schema: jaffle_shop
+      loader: Really don't know about how it's loaded
+      quoting:
+        database: true
+        schema: true
+        identifier: true
+
       tables:
         - name: customers
+          description: source customer table
+          quoting:
+            identifier: false
+          config:
+            enabled: true
         - name: orders
+          description: source order table        
           loaded_at_field: _etl_loaded_at
+          quoting:
+            identifier: false
+          config:
+            enabled: true
           freshness:
             warn_after: {count: 12, period: hour}
             error_after: {count: 24, period: day}

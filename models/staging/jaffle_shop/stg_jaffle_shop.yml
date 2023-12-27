@@ -2,24 +2,37 @@ version: 2
 
 models:
 - name: stg_customers
-  description: Staged customer data from our jaffle shop app.
+  description: |
+    Staged customer data from our jaffle shop app.      
+    "![dbt Logo](assets/dbt-logo.svg)"
+    "![dbt-logo](https://github.com/dbt-labs/dbt-core/blob/main/etc/dbt-core.svg)"
+  meta:
+    owner: "@anand"
+    model_maturity: in dev  
+
   columns:
     - name: customer_id
       description: The primary key for customers.
+      meta:
+        contains_pii: false
       tests:
         - unique
         - not_null
 
 - name: stg_orders
-  description: Staged order data from our jaffle shop app.
+  description: Staged order data from our jaffle shop app."**[Read more](https://www.google.com/)**"
   columns:
     - name: order_id
       description: Primary key for orders.
+      meta:
+        contains_pii: false
       tests:
         - unique
         - not_null
     - name: status
       description: "{{ doc('order_status') }}"
+      meta:
+        contains_pii: false      
       tests:
         - accepted_values:
             values:
@@ -30,6 +43,8 @@ models:
               - placed
     - name: customer_id
       description: Foreign key to stg_customers.customer_id.
+      meta:
+        contains_pii: false      
       tests:
         - relationships:
             to: ref('stg_customers')

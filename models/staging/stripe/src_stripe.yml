@@ -4,8 +4,17 @@ sources:
     - name: stripe
       database: qfybigwj
       schema: stripe
+      loader: Really don't know about how it's loaded
+      quoting:
+        database: true
+        schema: true
+        identifier: true
+
       tables:
         - name: payment
+          description: "# source payment table"
+          quoting:
+            identifier: false
           loaded_at_field: _batched_at
           freshness:
             warn_after: {count: 12, period: hour}

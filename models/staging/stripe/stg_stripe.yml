@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_payments
+    description: amounts against each order
+    meta:
+      owner: "@anand"
+      model_maturity: in dev
+    config:
+      tags: ['stripe']
+
+    columns:
+      - name: paymentid
+        description: primary key for payments
+        tags: ['stripe']
+        meta:
+          contains_pii: false
+        tests:
+          - unique
+          - not_null
+        
