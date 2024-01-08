@@ -17,5 +17,7 @@ models:
           contains_pii: false
         tests:
           - unique
-          - not_null
+          - not_null:
+              config:
+                tags: ['finance_test']
         
