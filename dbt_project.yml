@@ -35,6 +35,7 @@ models:
   jaffle_shop:
     # Applies to all files under models/example/
     marts:
+      description: "{{ env_var('DBT_VARIABLE') }}"
       core:
         +materialized: table
     staging:
