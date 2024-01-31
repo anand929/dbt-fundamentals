@@ -1,0 +1,11 @@
+version: 2
+
+seeds:
+  - name: employees
+    description: master data for employees
+    columns:
+      - name: employee_id
+        tests:
+          - not_null
+          - unique
+      
