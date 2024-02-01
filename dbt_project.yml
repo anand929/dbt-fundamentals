@@ -36,7 +36,9 @@ models:
     # Applies to all files under models/example/
     +required_docs: true
     marts:
+      +required_tests: {"unique.*|not_null": 1}
       core:
         +materialized: table
+        +required_tests: {"relationship.*":1}
     staging:
       +materialized: view

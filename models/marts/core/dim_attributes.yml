@@ -7,6 +7,12 @@ models:
     columns:
       - name: customer_id
         description: customer id column
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customer')
+              field: customer_id
+
       - name: first_name
         description: first name
       - name: first_order_date
@@ -25,6 +31,11 @@ models:
     columns:
       - name: order_id
         description: order id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id  
       - name: customer_id
         description: customer id
       - name: order_date
@@ -37,6 +48,11 @@ models:
     columns:
       - name: order_id
         description: order id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
       - name: coupon_amount
         description: coupon_amount
       - name: credit_card_amount
