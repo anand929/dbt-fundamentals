@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_payments
+    description: stage table for payments
+    columns:
+      - name: payment_id
+        description: payment id 
+      - name: order_id
+        description: order id
+      - name: payment_method
+        description: payment method
+      - name: status
+        description: payment status
+      - name: amount
+        description: payment amount
+      - name: created_at
+        description: created at

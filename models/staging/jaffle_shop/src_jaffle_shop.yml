@@ -6,6 +6,7 @@ sources:
       schema: jaffle_shop
       tables:
         - name: customers
+          description: source customer
         - name: orders
           loaded_at_field: _etl_loaded_at
           freshness:
