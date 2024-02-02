@@ -9,6 +9,7 @@ models:
         description: customer id column
         tests:
           - not_null
+          - unique
           - relationships:
               to: ref('stg_customer')
               field: customer_id
