@@ -6,6 +6,16 @@ models:
     columns:
       - name: payment_id
         description: payment id 
+        tests:
+          - unique:
+              config:
+                store_failures: true
+                where: "status='success' limit 10"
+                limit: 10
+                severity: error
+                error_if: ">100"
+                warn_if: ">10"
+
       - name: order_id
         description: order id
       - name: payment_method
@@ -14,5 +24,13 @@ models:
         description: payment status
       - name: amount
         description: payment amount
+        tests:
+          - unique:
+              config:
+                store_failures: true 
+                schema: abcxyz
+                severity: warn
+                error_if: ">=27"
+                warn_if: ">=27"
       - name: created_at
         description: created at
