@@ -36,7 +36,9 @@ models:
     # Applies to all files under models/example/
     +pre-hook:
       sql: "select count(*) as project_yml_count from {{ source('jaffle_shop', 'customers') }}"
-
+    +on-run-end: 
+      - "{% for schema in schemas %}grant select on schema {{ schema }} to db_reader; {% endfor %}"
+      - "{% for (database, schema) in database_schemas %} grant select on {{ database }}.{{ schema }} to {{ user }}; {% endfor %}"
     marts:
       core:
         +materialized: table

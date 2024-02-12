@@ -1,3 +1,9 @@
+{{
+    config(
+        schema='on_run_end_hook'
+    )
+}}
+
 with orders as (
 
     select
