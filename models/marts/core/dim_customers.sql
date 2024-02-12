@@ -1,3 +1,8 @@
+{{
+    config(
+        pre_hook="select count(*) as dependent_model_count from {{ this }}"
+    )
+}}
 with customers as (
 
     select * from {{ ref('stg_customers')}}

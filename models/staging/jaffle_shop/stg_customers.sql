@@ -1,3 +1,8 @@
+{{
+    config(
+        pre_hook="select count(*) as current_model_count from {{ this }}"
+    )
+}}
 with customers as (
 
     select
