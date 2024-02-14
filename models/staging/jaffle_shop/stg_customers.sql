@@ -8,5 +8,5 @@ with customers as (
     from {{ source('jaffle_shop', 'customers') }}
 
 )
-
+--added a comment for slim ci demo purpose
 select * from customers
