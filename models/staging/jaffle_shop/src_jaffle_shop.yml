@@ -13,6 +13,11 @@ sources:
       tables:
         - name: customers
           description: source customer table
+          columns:
+            - name: id
+              tests:
+                - not_null
+                - unique          
           quoting:
             identifier: false
           config:
